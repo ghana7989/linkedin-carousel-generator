@@ -1,0 +1,41 @@
+# Node modules (both root and server)
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env.local
+
+# Yarn
+.yarn/
+.yarnrc.yml
+yarn.lock
+
+# OS files
+.DS_Store
+
+# Tailwind build artifacts
+dist/
+
+# TypeScript build artifacts
+dist/
+*.tsbuildinfo
+
+# ESLint cache
+.eslintcache
+
+# Prettier cache
+.prettiercache
+
+# Ignore specific config and lock files in both root and server
+package-lock.json
+yarn.lock
+tsconfig.build.json
+tsconfig.json
+
+# Ignore build artifacts for the public folder
+/public/dist/
+
