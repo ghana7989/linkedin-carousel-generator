@@ -1,11 +1,16 @@
 import axiosInstance from '../../../shared/api/axios'
 import { generatePdfHtml } from '../utils/generatePdf'
 import { useEditor } from './useEditor'
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 
 export const useEditorApi = () => {
 	const { slides, currentTheme, userSettings } = useEditor()
+	const [isDownloading, setIsDownloading] = useState(false)
+
 	const handleDownload = useCallback(async () => {
+		if (isDownloading) return // Prevent multiple simultaneous downloads
+
+		setIsDownloading(true)
 		const previewHtml = generatePdfHtml(slides, currentTheme, {
 			userName: userSettings.userName,
 			linkedInUsername: userSettings.linkedInUsername,
@@ -32,8 +37,10 @@ export const useEditorApi = () => {
 			window.URL.revokeObjectURL(url)
 		} catch (error) {
 			console.error('Error downloading PDF:', error)
+		} finally {
+			setIsDownloading(false)
 		}
-	}, [slides, currentTheme, userSettings])
+	}, [slides, currentTheme, userSettings, isDownloading])
 
-	return { handleDownload }
+	return { handleDownload, isDownloading }
 }
