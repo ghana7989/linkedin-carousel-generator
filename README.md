@@ -1,4 +1,6 @@
 # Linkedin Carousel Generator
+## Demo
+[Screencast from 2024-09-21 10-20-25.webm](https://github.com/user-attachments/assets/1d479f2a-2ece-4a56-a946-51a090db3df1)
 
 ## Getting Started
 
