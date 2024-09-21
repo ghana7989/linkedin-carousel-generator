@@ -1,6 +1,6 @@
-import { Controller, Get, Post, Query, Body, Res } from '@nestjs/common';
-import { GenerateCarouselService } from './generate-carousel.service';
+import { Body, Controller, Post, Res } from '@nestjs/common';
 import { type Response } from 'express';
+import { GenerateCarouselService } from './generate-carousel.service';
 
 @Controller('tools')
 export class ToolsController {
